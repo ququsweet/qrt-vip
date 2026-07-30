@@ -1,5 +1,5 @@
 // Service Worker - 排班提醒应用
-const CACHE_NAME = 'shift-reminder-v11';
+const CACHE_NAME = 'shift-reminder-v12';
 const ASSETS = [
   'shift-reminder.html',
   'manifest.json'

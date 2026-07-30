@@ -1142,7 +1142,10 @@ input, textarea, .tool-input, .report-box, .modal-text, .pm-input {
 .tool-reset { font-size: 12px; color: var(--text-secondary); background: var(--bg); border: none; padding: 5px 10px; border-radius: 8px; }
 
 .tool-row { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
-.tool-row label { font-size: 12px; color: var(--text-secondary); flex: 0 0 62px; }
+.tool-row label { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); flex: 0 0 84px; }
+.row-ico { display: inline-block; width: 18px; text-align: center; font-size: 13px; flex: 0 0 auto; }
+.tool-subhead { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); font-weight: 600; margin: 12px 0 8px; }
+.tool-subhead .row-ico { width: 18px; text-align: center; }
 .tool-input {
   flex: 1; min-width: 0;
   padding: 8px 10px;
@@ -2715,7 +2718,7 @@ function toolStopDurationHTML() {
       <button class="seg-btn active" data-mode="other">非本站晚点</button>
     </div>
     <div class="tool-row" id="sdPlanWrap">
-      <label>计划发车</label>
+      <label><span class="row-ico">🚄</span>计划发车</label>
       <div class="tf-wrap">
         <input type="text" class="tool-input" id="sdPlan" placeholder="HH:MM:SS" style="display:none;" maxlength="8">
         <div class="tp-wrap" id="sdPlanPicker"></div>
@@ -2724,7 +2727,7 @@ function toolStopDurationHTML() {
       <button class="edit-toggle-btn" data-target="sdPlan" data-picker="1" title="手动输入">✍🏻</button>
     </div>
     <div class="tool-row" id="sdArrivalWrap" style="display:none;">
-      <label>实际到站</label>
+      <label><span class="row-ico">🚉</span>实际到站</label>
       <div class="tf-wrap">
         <input type="text" class="tool-input" id="sdArrival" placeholder="HH:MM:SS" style="display:none;" maxlength="8">
         <div class="tp-wrap" id="sdArrivalPicker"></div>
@@ -2733,7 +2736,7 @@ function toolStopDurationHTML() {
       <button class="edit-toggle-btn" data-target="sdArrival" data-picker="1" title="手动输入">✍🏻</button>
     </div>
     <div class="tool-row">
-      <label>实际发车</label>
+      <label><span class="row-ico">🚀</span>实际发车</label>
       <div class="tf-wrap">
         <input type="text" class="tool-input" id="sdActual" placeholder="HH:MM:SS" style="display:none;" maxlength="8">
         <div class="tp-wrap" id="sdActualPicker"></div>
@@ -2742,7 +2745,7 @@ function toolStopDurationHTML() {
       <button class="edit-toggle-btn" data-target="sdActual" data-picker="1" title="手动输入">✍🏻</button>
     </div>
     <div id="sdBufferWrap" class="tool-row" style="display:none;">
-      <label>固定停站</label>
+      <label><span class="row-ico">🔒</span>固定停站</label>
       <div class="locked-input" id="sdBufferBox">
         <span id="sdBufferVal">${bufferStr}</span>
         <button class="lock-toggle" id="sdBufferLock" title="点击解锁修改">🔒</button>
@@ -2761,13 +2764,13 @@ function toolElevatorHTML() {
       <div class="tool-title">🛗 停梯时间计算</div>
     </div>
     <div class="tool-row">
-      <label>停止时间</label>
+      <label><span class="row-ico">⏹️</span>停止时间</label>
       <input type="time" class="tool-input" id="elStop" step="1">
       <button class="now-btn" data-target="elStop" data-fmt="hm" title="当前时间">🕐</button>
       <button class="edit-toggle-btn" data-target="elStop" title="手动输入">✍🏻</button>
     </div>
     <div class="tool-row">
-      <label>恢复时间</label>
+      <label><span class="row-ico">🔄</span>恢复时间</label>
       <input type="time" class="tool-input" id="elResume" step="1">
       <button class="now-btn" data-target="elResume" data-fmt="hm" title="当前时间">🕐</button>
       <button class="edit-toggle-btn" data-target="elResume" title="手动输入">✍🏻</button>
@@ -2816,10 +2819,12 @@ function toolReportHTML() {
       <div class="tool-title">📝 信息汇报编辑框</div>
     </div>
     <div class="report-toolbar" id="rpToolbar" data-order-key="reportToolbarOrder">${reportToolbarBtnsHTML()}</div>
+    <div class="tool-subhead"><span class="row-ico">📋</span>预设模板</div>
     <div class="template-bar" id="rpTemplates" data-order-key="templateOrder">${templateBtnsHTML()}<button class="report-btn tpl-add" id="rpAddTpl" title="新增预设模板">➕</button></div>
     <div class="numpad-row">${numPad}</div>
     <textarea class="report-box" id="rpBox" placeholder="点上方按钮一键插入模板/时间；点下方词组快速键入，或手动输入。"></textarea>
     <div class="char-count"><span id="rpCount">0</span> 字</div>
+    <div class="tool-subhead"><span class="row-ico">💬</span>快捷词组</div>
     <div class="quick-phrases" id="rpPhrases">${chips}</div>
     <div class="phrase-edit">
       <a href="#" id="rpManagePhrases" class="phrase-reset">✏️ 管理词组</a>
